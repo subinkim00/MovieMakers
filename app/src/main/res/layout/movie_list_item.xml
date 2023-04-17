@@ -7,7 +7,7 @@
     android:background="@color/light_blue">
 
     <TextView
-        android:id="@+id/movie_title_text"
+        android:id="@+id/rv_movie_title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="10dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/movie_genre_text"
+        android:id="@+id/rv_movie_genre_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
@@ -33,22 +33,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/divider"
+        android:id="@+id/rv_divider"
         android:layout_width="409dp"
         android:layout_height="5dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/movie_genre_text" />
+        app:layout_constraintTop_toBottomOf="@id/rv_movie_genre_text" />
 
     <ImageView
-        android:id="@+id/movie_poster_image"
+        android:id="@+id/rv_movie_poster_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintTop_toBottomOf="@id/rv_divider"
         app:srcCompat="@drawable/no_photo_available_placeholder_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
