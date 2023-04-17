@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/movieTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Movie Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/button_padding"
+    />
+
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxWidth="250dp"
+        android:maxHeight="250dp"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/movieTitle"
+        android:src="@drawable/tron_legacy"
+        />
+
+    <TextView
+        android:id="@+id/genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Genre: Thriller"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/poster"
+        android:layout_marginTop="@dimen/button_padding" />
+
+    <TextView
+        android:id="@+id/maturity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Maturity: PG-13"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/genre"
+        app:layout_constraintTop_toBottomOf="@id/poster"
+        android:layout_marginTop="@dimen/button_padding" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Rating: 98%"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/genre"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/runtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Runtime: 2hrs"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/rating"
+        app:layout_constraintTop_toBottomOf="@id/genre"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/releaseDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Release Date: Aug 8, 2010"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/runtime"
+        app:layout_constraintTop_toBottomOf="@id/genre"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/cast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Cast: "
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rating"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/Member1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Jennifer Lawrence"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/cast"
+        app:layout_constraintTop_toBottomOf="@id/rating"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/Member2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Heath Ledger"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/Member1"
+        app:layout_constraintTop_toBottomOf="@id/rating"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/Member3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Rod Wave"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/Member2"
+        app:layout_constraintTop_toBottomOf="@id/rating"
+        android:layout_marginTop="10dp" />
+<!--    Make it such that it cannot go beyond the borders, or it wraps under-->
+
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:gravity="left"
+        android:text="@string/Summary_text"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/Member3" />
+
+    <Button
+        android:id="@+id/show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="More"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toBottomOf="@id/summary"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/show"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/tron_legacy_banner" />
+</androidx.constraintlayout.widget.ConstraintLayout>
