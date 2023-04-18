@@ -18,14 +18,14 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface SectionApiService {
+interface MovieApiService {
     @GET("now_playing?api_key=ae5f8d9a34efd2f2f0ee2033504b17d2")
-    fun getSections():
+    fun getMovies():
             Call<MutableList<Movie>>
 }
 
 object SectionApi {
-    val retrofitService : SectionApiService by lazy {
-        retrofit.create(SectionApiService::class.java)
+    val retrofitService : MovieApiService by lazy {
+        retrofit.create(MovieApiService::class.java)
     }
 }
