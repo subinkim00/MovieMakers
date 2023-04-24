@@ -4,4 +4,5 @@
     <string name="movie_title">Movie Title</string>
     <string name="Summary_text">"Summary "</string>
     <string name="genre">Genre</string>
+    <string name="movies_currently_in_theaters">Movies Currently In Theaters:</string>
 </resources>
