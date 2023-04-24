@@ -8,7 +8,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SectionViewModel : ViewModel() {
+class MovieViewModel : ViewModel() {
     private val _response = MutableLiveData<MutableList<Movie>>()
     val response : LiveData<MutableList<Movie>>
         get() = _response
@@ -19,7 +19,7 @@ class SectionViewModel : ViewModel() {
     }
 
     private fun getSections() {
-        SectionApi.retrofitService.getSections().enqueue(object: Callback<MutableList<Movie>> {
+        MovieApi.retrofitService.getMovies().enqueue(object: Callback<MutableList<Movie>> {
             override fun onResponse(call: Call<MutableList<Movie>>, response: Response<MutableList<Movie>>) {
                 _response.value = response.body()
             }

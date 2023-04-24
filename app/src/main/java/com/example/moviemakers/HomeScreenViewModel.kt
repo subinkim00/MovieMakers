@@ -9,11 +9,24 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class HomeScreenViewModel : ViewModel() {
-    private val _response = MutableLiveData<MutableList<ResultsItem>>()
-    val response : LiveData<MutableList<ResultsItem>>
+    private val _response = MutableLiveData<MutableList<Movie>>()
+    val response : LiveData<MutableList<Movie>>
         get() = _response
 
     private fun getMovies() {
+        MovieApi.retrofitService.getMovies().enqueue(object: Callback<MutableList<Movie>> {
+            override fun onResponse(call: Call<MutableList<Movie>>, response:
+            Response<MutableList<Movie>>) {
+                _response.value = response.body()
+            }
+            override fun onFailure(call: Call<MutableList<Movie>>, t: Throwable) {
+                Log.i("API", "ERROR: " + t.message)
+            }
+        })
 
+    }
+
+    init{
+        getMovies()
     }
 }

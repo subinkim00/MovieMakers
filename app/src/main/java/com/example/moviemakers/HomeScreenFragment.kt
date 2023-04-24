@@ -6,17 +6,37 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.moviemakers.databinding.FragmentHomeScreenBinding
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 
 class HomeScreenFragment : Fragment() {
-    private var _binding: FragmentHomeScreenBinding? = null
-    private val binding get() = _binding!!
-
+    private lateinit var viewModel: HomeScreenViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeScreenBinding.inflate(inflater, container, false)
+        val root = inflater.inflate(R.layout.fragment_home_screen, container, false)
 
-        return binding.root
+        viewModel = ViewModelProvider(this).get(HomeScreenViewModel::class.java)
+
+        val recyclerView = root.findViewById<RecyclerView>(R.id.movie_list_rv)
+        var adapter : MovieAdapter? = null
+        viewModel.response.observe(viewLifecycleOwner, Observer { movieList ->
+            val firstMovie = movieList.firstOrNull()
+            val resultsList = firstMovie?.results
+            resultsList?.let {
+                adapter = MovieAdapter(it as MutableList<ResultsItem>)
+                recyclerView.adapter = adapter
+            }
+        })
+        return root
     }
+
+
+
+
 }

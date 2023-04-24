@@ -24,7 +24,7 @@ interface MovieApiService {
             Call<MutableList<Movie>>
 }
 
-object SectionApi {
+object MovieApi {
     val retrofitService : MovieApiService by lazy {
         retrofit.create(MovieApiService::class.java)
     }
