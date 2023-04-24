@@ -21,7 +21,7 @@ private val retrofit = Retrofit.Builder()
 interface MovieApiService {
     @GET("now_playing?api_key=ae5f8d9a34efd2f2f0ee2033504b17d2")
     fun getMovies():
-            Call<MutableList<Movie>>
+            Call<Movie>
 }
 
 object MovieApi {

@@ -1,6 +1,7 @@
 package com.example.moviemakers
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,13 +26,17 @@ class HomeScreenFragment : Fragment() {
 
         val recyclerView = root.findViewById<RecyclerView>(R.id.movie_list_rv)
         var adapter : MovieAdapter? = null
-        viewModel.response.observe(viewLifecycleOwner, Observer { movieList ->
-            val firstMovie = movieList.firstOrNull()
-            val resultsList = firstMovie?.results
+        viewModel.response.observe(viewLifecycleOwner, Observer { movie ->
+            //val firstMovie = movieList.firstOrNull()
+            //Log.i("API", "Response type: " + movieList.javaClass.name)
+            Log.i("API", "Response: " + movie.toString())
+            val resultsList = movie.results
             resultsList?.let {
                 adapter = MovieAdapter(it as MutableList<ResultsItem>)
                 recyclerView.adapter = adapter
             }
+
+
         })
         return root
     }
