@@ -1,5 +1,6 @@
 package com.example.moviemakers
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,10 +39,10 @@ class MovieAdapter (private val movies: MutableList<ResultsItem>):
         var genres = ""
         if (movie.genreIds?.isEmpty() == false) {
             for(code in movie.genreIds) {
-                genres += if (genres == "") {
-                    getGenre(code.toInt())
+                if (genres == "") {
+                    genres += getGenre(code.toInt())
                 } else {
-                    ", " + getGenre(code.toInt())
+                   genres += ", " + getGenre(code.toInt())
                 }
             }
         }
@@ -49,7 +50,7 @@ class MovieAdapter (private val movies: MutableList<ResultsItem>):
         genre.text = genres
 
         Glide.with(poster.context)
-            .load("https://api.themoviedb.org/3/movie/" + movie.posterPath)
+            .load("https://image.tmdb.org/t/p/w500" + movie.posterPath)
             .into(poster)
 
     }

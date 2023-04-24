@@ -27,8 +27,6 @@ class HomeScreenFragment : Fragment() {
         val recyclerView = root.findViewById<RecyclerView>(R.id.movie_list_rv)
         var adapter : MovieAdapter? = null
         viewModel.response.observe(viewLifecycleOwner, Observer { movie ->
-            //val firstMovie = movieList.firstOrNull()
-            //Log.i("API", "Response type: " + movieList.javaClass.name)
             Log.i("API", "Response: " + movie.toString())
             val resultsList = movie.results
             resultsList?.let {
