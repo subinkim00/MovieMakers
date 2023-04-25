@@ -16,71 +16,94 @@ class MovieAdapter (private val movies: MutableList<ResultsItem>):
         val movieTitleText: TextView = itemView.findViewById(R.id.rv_movie_title_text)
         val movieGenreText: TextView = itemView.findViewById(R.id.rv_movie_genre_text)
         val moviePosterImage: ImageView = itemView.findViewById(R.id.rv_movie_poster_image)
-    }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieAdapter.MovieViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater
-            .inflate(R.layout.movie_list_item, parent, false)
-        return MovieViewHolder(view)
-    }
-
-    override fun getItemCount(): Int {
-        return movies.size
-    }
-
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = movies[position]
-        val movieTitle = holder.movieTitleText
-        val genre = holder.movieGenreText
-        val poster = holder.moviePosterImage
-
-        movieTitle.text = movie.originalTitle
-        var genres = ""
-        if (movie.genreIds?.isEmpty() == false) {
-            for(code in movie.genreIds) {
-                if (genres == "") {
-                    genres += getGenre(code.toInt())
-                } else {
-                   genres += ", " + getGenre(code.toInt())
+        // Setup the click listener
+        init {
+            itemView.setOnClickListener {
+                // Triggers click upwards to the adapter on click
+                val position = absoluteAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(itemView, position)
                 }
             }
         }
-
-        genre.text = genres
-
-        Glide.with(poster.context)
-            .load("https://image.tmdb.org/t/p/w500" + movie.posterPath)
-            .into(poster)
-
     }
 
-    private fun getGenre(genreID : Int) : String {
-        var genre = ""
-        genre = when(genreID) {
-            28 -> "Action"
-            12 -> "Adventure"
-            16 -> "Animation"
-            35 -> "Comedy"
-            80 -> "Crime"
-            99 -> "Documentary"
-            18 -> "Drama"
-            10751 -> "Family"
-            14 -> "Fantasy"
-            36 -> "History"
-            27 -> "Horror"
-            10402 -> "Music"
-            9648 -> "Mystery"
-            10749 -> "Romance"
-            878 -> "Science Fiction"
-            10770 -> "TV Movie"
-            53 -> "Thriller"
-            10752 -> "War"
-            37 -> "Western"
-            else -> ""
+        override fun onCreateViewHolder(
+            parent: ViewGroup,
+            viewType: Int
+        ): MovieAdapter.MovieViewHolder {
+            val layoutInflater = LayoutInflater.from(parent.context)
+            val view = layoutInflater
+                .inflate(R.layout.movie_list_item, parent, false)
+            return MovieViewHolder(view)
         }
-        return genre
 
-    }
+        override fun getItemCount(): Int {
+            return movies.size
+        }
 
+        override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+            val movie = movies[position]
+            val movieTitle = holder.movieTitleText
+            val genre = holder.movieGenreText
+            val poster = holder.moviePosterImage
+
+            movieTitle.text = movie.originalTitle
+            var genres = ""
+            if (movie.genreIds?.isEmpty() == false) {
+                for (code in movie.genreIds) {
+                    if (genres == "") {
+                        genres += getGenre(code.toInt())
+                    } else {
+                        genres += ", " + getGenre(code.toInt())
+                    }
+                }
+            }
+
+            genre.text = genres
+
+            Glide.with(poster.context)
+                .load("https://image.tmdb.org/t/p/w500" + movie.posterPath)
+                .into(poster)
+
+        }
+
+        private fun getGenre(genreID: Int): String {
+            var genre = ""
+            genre = when (genreID) {
+                28 -> "Action"
+                12 -> "Adventure"
+                16 -> "Animation"
+                35 -> "Comedy"
+                80 -> "Crime"
+                99 -> "Documentary"
+                18 -> "Drama"
+                10751 -> "Family"
+                14 -> "Fantasy"
+                36 -> "History"
+                27 -> "Horror"
+                10402 -> "Music"
+                9648 -> "Mystery"
+                10749 -> "Romance"
+                878 -> "Science Fiction"
+                10770 -> "TV Movie"
+                53 -> "Thriller"
+                10752 -> "War"
+                37 -> "Western"
+                else -> ""
+            }
+            return genre
+        }
+        interface OnItemClickListener {
+            fun onItemClick(itemView: View?, position: Int)
+        }
+
+        // Define listener member variable
+        private lateinit var listener: OnItemClickListener
+
+        // Define the method that allows the parent activity or fragment to define the listener
+        fun setOnItemClickListener(listener: OnItemClickListener) {
+            this.listener = listener
+        }
     }
