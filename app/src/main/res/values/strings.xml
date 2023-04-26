@@ -23,6 +23,8 @@
     <string name="maturity">Maturity: %1$s.</string>
     <string name="rating">Rating: %1$f.</string>
     <string name="releaseDate">Release Date: %1$s.</string>
+    <string name="banner">banner</string>
+    <string name="movieposter">moviePoster</string>
 
 
 </resources>
