@@ -91,17 +91,6 @@
         app:layout_constraintTop_toBottomOf="@id/genre"
         android:layout_marginTop="10dp" />
 
-    <TextView
-        android:id="@+id/cast"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:text="Cast: "
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rating"
-        android:layout_marginTop="10dp" />
 
 
 <!--    Make it such that it cannot go beyond the borders, or it wraps under-->
@@ -118,7 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toBottomOf="@id/cast" />
+        app:layout_constraintTop_toBottomOf="@id/releaseDate" />
 
 
 
