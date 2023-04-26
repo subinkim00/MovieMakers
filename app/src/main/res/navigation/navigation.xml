@@ -9,5 +9,16 @@
         android:id="@+id/homeScreenFragment"
         android:name="com.example.moviemakers.HomeScreenFragment"
         android:label="fragment_home_screen"
-        tools:layout="@layout/fragment_home_screen"/>
+        tools:layout="@layout/fragment_home_screen">
+        <action
+            android:id="@+id/action_homeScreenFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.moviemakers.InfoFragment"
+        android:label="InfoFragment" >
+        <argument android:name="movieId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
