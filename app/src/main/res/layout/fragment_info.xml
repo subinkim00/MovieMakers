@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
-    tools:context=".MainActivity">
+    android:background="@android:color/background_light">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -19,7 +18,7 @@
             android:layout_margin="8dp"
             app:cardBackgroundColor="@color/purple_200"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">>
+            app:cardElevation="8dp">
 
             <TextView
                 android:id="@+id/movieTitle"
@@ -29,7 +28,7 @@
                 android:fontFamily="@font/montserrat_bold"
                 android:gravity="center"
                 android:scaleType="fitCenter"
-                android:text="Movie Title"
+                android:text="@string/movie_name"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -73,7 +72,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="@dimen/button_padding"
                 android:gravity="center"
-                android:text="Genre: Thriller"
+                android:text="@string/genre_thriller"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -86,7 +85,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_toRightOf="@id/genre"
                 android:gravity="center"
-                android:text="Maturity: PG-13"
+                android:text="@string/maturity_pg_13"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/genre" />
 
@@ -94,28 +93,16 @@
                 android:id="@+id/rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/container"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_toRightOf="@id/maturity"
-                android:gravity="center"
-                android:text="Rating: 98%"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/genre" />
-
-            <TextView
-                android:id="@+id/runtime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_below="@id/genre"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="Runtime: 2hrs"
+                android:text="@string/rating_98"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/rating"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/genre" />
+
+
 
             <TextView
                 android:id="@+id/releaseDate"
@@ -124,22 +111,22 @@
                 android:layout_below="@id/maturity"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
-                android:layout_toRightOf="@id/runtime"
+                android:layout_toRightOf="@id/rating"
                 android:gravity="center"
-                android:text="Release Date: Aug 8, 2010"
+                android:text="@string/release_date_aug_8_2010"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/runtime"
+                app:layout_constraintStart_toEndOf="@id/rating"
                 app:layout_constraintTop_toBottomOf="@id/genre" />
 
             <TextView
                 android:id="@+id/cast"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/runtime"
+                android:layout_below="@id/rating"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="Cast: "
+                android:text="@string/cast"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rating" />
@@ -148,12 +135,12 @@
                 android:id="@+id/Member1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/runtime"
+                android:layout_below="@id/rating"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@id/cast"
                 android:gravity="center"
-                android:text="Jennifer Lawrence"
+                android:text="@string/jennifer_lawrence"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/cast"
                 app:layout_constraintTop_toBottomOf="@id/rating" />
@@ -162,12 +149,12 @@
                 android:id="@+id/Member2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/runtime"
+                android:layout_below="@id/releaseDate"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_toEndOf="@id/Member1"
                 android:gravity="center"
-                android:text="Heath Ledger"
+                android:text="@string/heath_ledger"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/Member1"
                 app:layout_constraintTop_toBottomOf="@id/rating" />
@@ -181,7 +168,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_toEndOf="@id/cast"
                 android:gravity="center"
-                android:text="Rod Wave"
+                android:text="@string/rod_wave"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/Member2"
                 app:layout_constraintTop_toBottomOf="@id/rating" />

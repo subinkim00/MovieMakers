@@ -99,11 +99,15 @@ class MovieAdapter (private val movies: MutableList<ResultsItem>):
             fun onItemClick(itemView: View?, position: Int)
         }
 
+
+
+        // Define the method that allows the parent activity or fragment to define the listener
+
         // Define listener member variable
         private lateinit var listener: OnItemClickListener
 
-        // Define the method that allows the parent activity or fragment to define the listener
         fun setOnItemClickListener(listener: OnItemClickListener) {
             this.listener = listener
         }
+
     }

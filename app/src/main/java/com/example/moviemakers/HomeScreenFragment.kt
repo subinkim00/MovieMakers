@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class HomeScreenFragment : Fragment() {
     private val viewModel: HomeScreenViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,13 +31,16 @@ class HomeScreenFragment : Fragment() {
         var adapter : MovieAdapter? = null
 
         // TODO: set up MovieInfo kt file, pass id of movie
-//        adapter.setOnItemClickListener(object : MovieAdapter.OnItemClickListener {
-//            override fun onItemClick(itemView: View?, position: Int) {
-//                val bundle = bundleOf("numBoba" to 2)
-//                view?.findNavController()?.navigate(R.id.)
-//                    bundle)
-//            }
-//        })
+        adapter?.setOnItemClickListener(object : MovieAdapter.OnItemClickListener {
+            override fun onItemClick(itemView: View?, position: Int) {
+                val action = itemView?.let {
+                    HomeScreenFragmentDirections.actionHomeScreenFragmentToInfoFragment2(it.id)
+                }
+                if (action != null) {
+                    view?.findNavController()?.navigate(action)
+                }
+            }
+        })
 
         viewModel.response.observe(viewLifecycleOwner, Observer { movie ->
             Log.i("API", "Response: " + movie.toString())
