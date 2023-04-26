@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide
 import com.example.moviemakers.databinding.FragmentInfoBinding
 
 class InfoFragment : Fragment() {
-    private lateinit var viewModel: InfoViewModel
     private var _binding: FragmentInfoBinding? = null
     private val binding get() = _binding!!
     val args : InfoFragmentArgs by navArgs()
@@ -22,7 +21,6 @@ class InfoFragment : Fragment() {
     ): View {
         _binding = FragmentInfoBinding.inflate(inflater, container, false)
         val root = binding.root
-        viewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
 
         binding.movieTitle.text = args.MovieInfo.originalTitle
 
