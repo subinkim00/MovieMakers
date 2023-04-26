@@ -5,4 +5,11 @@
     <string name="Summary_text">"Summary "</string>
     <string name="genre">Genre</string>
     <string name="movies_currently_in_theaters">Movies Currently In Theaters:</string>
+    <string name="unknown">unknown</string>
+    <string name="kid_friendly">Kid Friendly:</string>
+    <string name="ratingTitle">Rating:</string>
+    <string name="runtime">Runtime:</string>
+    <string name="release_date">Release Date:</string>
+    <string name="genre_s">Genre(s):</string>
+    <string name="summary">Summary:</string>
 </resources>
