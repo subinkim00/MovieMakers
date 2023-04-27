@@ -22,6 +22,10 @@ interface MovieApiService {
     @GET("now_playing?api_key=ae5f8d9a34efd2f2f0ee2033504b17d2")
     fun getMovies():
             Call<Movie>
+
+    @GET("{movie_id}?api_key=ae5f8d9a34efd2f2f0ee2033504b17d2")
+    fun getDetails():
+            Call<ResultsItem>
 }
 
 object MovieApi {

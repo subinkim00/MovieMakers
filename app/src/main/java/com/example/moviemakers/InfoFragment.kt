@@ -88,5 +88,5 @@ class InfoFragment : Fragment() {
         }
         return genre
     }
-
+    
 }

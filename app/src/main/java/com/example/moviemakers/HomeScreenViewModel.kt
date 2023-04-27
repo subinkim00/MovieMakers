@@ -13,6 +13,11 @@ class HomeScreenViewModel : ViewModel() {
     val response : LiveData<Movie>
         get() = _response
 
+
+    private val _response2 = MutableLiveData<ResultsItem>()
+    val response2 : LiveData<ResultsItem>
+        get() = _response2
+
     private fun getMovies() {
         MovieApi.retrofitService.getMovies().enqueue(object: Callback<Movie> {
             override fun onResponse(call: Call<Movie>, response:
@@ -25,6 +30,7 @@ class HomeScreenViewModel : ViewModel() {
         })
 
     }
+
 
     init{
         getMovies()

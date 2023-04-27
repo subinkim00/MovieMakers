@@ -10,9 +10,11 @@ import com.example.moviemakers.databinding.FragmentHomeScreenBinding
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 
@@ -25,12 +27,8 @@ class HomeScreenFragment : Fragment() {
     ): View {
         val root = inflater.inflate(R.layout.fragment_home_screen, container, false)
 
-        viewModel = ViewModelProvider(this).get(HomeScreenViewModel::class.java)
-
         val recyclerView = root.findViewById<RecyclerView>(R.id.movie_list_rv)
         var adapter : MovieAdapter? = null
-
-
 
         viewModel.response.observe(viewLifecycleOwner, Observer { movie ->
             Log.i("API", "Response: " + movie.toString())
