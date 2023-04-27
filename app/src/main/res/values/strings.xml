@@ -3,28 +3,13 @@
     <string name="movie_app">Movie App!!!</string>
     <string name="movie_title">Movie Title</string>
     <string name="Summary_text">"Summary "</string>
-
-<!--    Dummy String-->
-    <string name="rating_98">Rating: 98%</string>
-    <string name="genre_thriller">Genre: Thriller</string>
-    <string name="maturity_pg_13">Maturity: PG-13</string>
-    <string name="runtime_2hrs">Runtime: 2hrs</string>
-    <string name="release_date_aug_8_2010">Release Date: Aug 8, 2010</string>
-    <string name="cast">Cast:</string>
-    <string name="jennifer_lawrence">Jennifer Lawrence</string>
-    <string name="heath_ledger">Heath Ledger</string>
-    <string name="rod_wave">Rod Wave</string>
-    <string name="movie_name">Movie Title</string>
-
-
-    <string name="genre">genre</string>
-    <string name="movies_currently_in_theaters">Movies</string>
-    <string name="Genre">Genre: %1$s.</string>
-    <string name="maturity">Maturity: %1$s.</string>
-    <string name="rating">Rating: %1$f.</string>
-    <string name="releaseDate">Release Date: %1$s.</string>
-    <string name="banner">banner</string>
-    <string name="movieposter">moviePoster</string>
-
-
+    <string name="genre">Genre</string>
+    <string name="movies_currently_in_theaters">Movies Currently In Theaters:</string>
+    <string name="unknown">unknown</string>
+    <string name="kid_friendly">Kid Friendly:</string>
+    <string name="ratingTitle">Rating:</string>
+    <string name="runtime">Runtime:</string>
+    <string name="release_date">Release Date:</string>
+    <string name="genre_s">Genre(s):</string>
+    <string name="summary">Summary:</string>
 </resources>

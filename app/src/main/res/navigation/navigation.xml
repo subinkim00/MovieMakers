@@ -17,9 +17,10 @@
     <fragment
         android:id="@+id/infoFragment2"
         android:name="com.example.moviemakers.InfoFragment"
-        android:label="InfoFragment" >
+        android:label="InfoFragment"
+        tools:layout="@layout/fragment_info">
         <argument
-            android:name="movieId"
-            app:argType="integer" />
+            android:name="MovieInfo"
+            app:argType="com.example.moviemakers.ResultsItem" />
     </fragment>
 </navigation>
